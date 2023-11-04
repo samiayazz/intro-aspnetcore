@@ -23,4 +23,8 @@
     <ProjectReference Include="..\IntroAspNet.Domain\IntroAspNet.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

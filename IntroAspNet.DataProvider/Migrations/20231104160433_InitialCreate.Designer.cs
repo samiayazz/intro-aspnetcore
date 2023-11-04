@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IntroAspNet.DataProvider.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231103160339_InitialCreate")]
+    [Migration("20231104160433_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -44,14 +44,15 @@ namespace IntroAspNet.DataProvider.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("ImageId")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -61,11 +62,12 @@ namespace IntroAspNet.DataProvider.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ViewCount")
-                        .HasColumnType("INTEGER");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(0);
 
                     b.HasKey("Id");
 
@@ -75,6 +77,32 @@ namespace IntroAspNet.DataProvider.Migrations
                         .IsUnique();
 
                     b.ToTable("Articles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("75331805-46d0-41ce-a548-134755dd6974"),
+                            CategoryId = new Guid("bcfffae0-0887-418a-9ec6-88d103b61dfe"),
+                            Content = "Article 1 Content",
+                            CreatedAt = new DateTime(2023, 11, 4, 19, 4, 33, 742, DateTimeKind.Local).AddTicks(4919),
+                            CreatedBy = "sa",
+                            ImageId = new Guid("88fd2790-9df1-49ec-832e-af8ca7ca4349"),
+                            IsDeleted = false,
+                            Title = "Article 1",
+                            ViewCount = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("72e52ab7-8dae-450a-a809-522ee8762a6a"),
+                            CategoryId = new Guid("5040350e-2655-4b91-9a39-233ecf87e0c4"),
+                            Content = "Article 2 Content",
+                            CreatedAt = new DateTime(2023, 11, 4, 19, 4, 33, 742, DateTimeKind.Local).AddTicks(4936),
+                            CreatedBy = "sa",
+                            ImageId = new Guid("4a765bfa-780c-4c8f-ab94-22f66a2555aa"),
+                            IsDeleted = false,
+                            Title = "Article 2",
+                            ViewCount = 0
+                        });
                 });
 
             modelBuilder.Entity("IntroAspNet.Domain.Entities.Category", b =>
@@ -94,11 +122,12 @@ namespace IntroAspNet.DataProvider.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -108,12 +137,29 @@ namespace IntroAspNet.DataProvider.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("bcfffae0-0887-418a-9ec6-88d103b61dfe"),
+                            CreatedAt = new DateTime(2023, 11, 4, 19, 4, 33, 742, DateTimeKind.Local).AddTicks(5495),
+                            CreatedBy = "sa",
+                            IsDeleted = false,
+                            Name = "Category 1"
+                        },
+                        new
+                        {
+                            Id = new Guid("5040350e-2655-4b91-9a39-233ecf87e0c4"),
+                            CreatedAt = new DateTime(2023, 11, 4, 19, 4, 33, 742, DateTimeKind.Local).AddTicks(5499),
+                            CreatedBy = "sa",
+                            IsDeleted = false,
+                            Name = "Category 2"
+                        });
                 });
 
             modelBuilder.Entity("IntroAspNet.Domain.Entities.Image", b =>
@@ -133,7 +179,6 @@ namespace IntroAspNet.DataProvider.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FileName")
@@ -145,18 +190,39 @@ namespace IntroAspNet.DataProvider.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(false);
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.ToTable("Images");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("88fd2790-9df1-49ec-832e-af8ca7ca4349"),
+                            CreatedAt = new DateTime(2023, 11, 4, 19, 4, 33, 742, DateTimeKind.Local).AddTicks(5987),
+                            CreatedBy = "sa",
+                            FileName = "Image 1",
+                            FileType = "png",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("4a765bfa-780c-4c8f-ab94-22f66a2555aa"),
+                            CreatedAt = new DateTime(2023, 11, 4, 19, 4, 33, 742, DateTimeKind.Local).AddTicks(6005),
+                            CreatedBy = "sa",
+                            FileName = "Image 2",
+                            FileType = "jpeg",
+                            IsDeleted = false
+                        });
                 });
 
             modelBuilder.Entity("IntroAspNet.Domain.Entities.Article", b =>
