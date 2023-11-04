@@ -1,4 +1,4 @@
-﻿namespace IntroAspNet.Domain.Abstraction
+﻿namespace IntroAspNet.Domain.Entities.Abstraction
 {
     public interface IEntity
     {

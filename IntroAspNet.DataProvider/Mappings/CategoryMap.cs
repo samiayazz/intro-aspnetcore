@@ -1,4 +1,4 @@
-﻿using IntroAspNet.Domain.Entities;
+﻿using IntroAspNet.Domain.Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

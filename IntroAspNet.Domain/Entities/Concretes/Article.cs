@@ -1,6 +1,6 @@
-﻿using IntroAspNet.Domain.Abstraction;
+﻿using IntroAspNet.Domain.Entities.Abstraction;
 
-namespace IntroAspNet.Domain.Entities
+namespace IntroAspNet.Domain.Entities.Concretes
 {
     public sealed class Article : EntityBase
     {
