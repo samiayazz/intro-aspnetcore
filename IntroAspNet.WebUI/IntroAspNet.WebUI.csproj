@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IntroAspNet.DataProvider\IntroAspNet.DataProvider.csproj" />
+    <ProjectReference Include="..\IntroAspNet.Service\IntroAspNet.Service.csproj" />
   </ItemGroup>
 
 </Project>

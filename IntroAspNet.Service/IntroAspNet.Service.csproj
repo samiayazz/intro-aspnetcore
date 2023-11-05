@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IntroAspNet.DataProvider\IntroAspNet.DataProvider.csproj" />
+    <ProjectReference Include="..\IntroAspNet.Domain\IntroAspNet.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,9 +1,11 @@
 using IntroAspNet.DataProvider.Extensions;
+using IntroAspNet.Service.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.LoadDataProviderExtension(builder.Configuration);
+builder.Services.LoadServiceExtension();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
