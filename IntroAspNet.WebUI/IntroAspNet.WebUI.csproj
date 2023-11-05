@@ -34,4 +34,10 @@
     <Folder Include="wwwroot\lib\jquery\dist\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\sneat\.github\workflows\handle-new-issue-comment.yml" />
+    <None Include="wwwroot\sneat\.github\workflows\handle-new-issue.yml" />
+    <None Include="wwwroot\sneat\.github\workflows\issue-staler.yml" />
+  </ItemGroup>
+
 </Project>
